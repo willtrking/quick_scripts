@@ -46,7 +46,7 @@ increment_version() {
    while [ ${#v[@]} -lt ${minPos} ]; do v+=("0"); done;
 
    # Increment target position.
-   v[$targetPos]=`printf %0${#v[$targetPos]}d $((${v[$targetPos]}+1))`;
+   v[$targetPos]=`printf %0${#v[$targetPos]}d $((10#${v[$targetPos]}+1))`;
 
    # Remove leading zeros, if -l flag passed.
    if [ $flag_remove_leading_zeros == 1 ]; then
